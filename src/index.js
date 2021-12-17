@@ -1,8 +1,8 @@
-const { gql, ApolloServer } = require("apollo-server");
-const { Neo4jGraphQL } = require("@neo4j/graphql");
-const neo4j = require("neo4j-driver");
+const { gql, ApolloServer } = require("apollo-server")
+const { Neo4jGraphQL } = require("@neo4j/graphql")
+const neo4j = require("neo4j-driver")
 
-require("dotenv").config();
+require("dotenv").config()
 
 const typeDefs = gql`
   type Movie {
@@ -16,25 +16,19 @@ const typeDefs = gql`
     name: String!
     movies: [Movie] @relationship(type: "ACTED_IN", direction: OUT)
   }
-`;
+`
 
-const {
-  DB_URI: dbUri,
-  DB_USERNAME: username,
-  DB_PASSWORD: password,
-} = process.env;
+const { DB_URI: dbUri, DB_USERNAME: username, DB_PASSWORD: password } = process.env
 
-const driver = neo4j.driver(dbUri, neo4j.auth.basic(username, password));
+const driver = neo4j.driver(dbUri, neo4j.auth.basic(username, password))
 
 const { schema } = new Neo4jGraphQL({
   typeDefs,
   driver,
-});
+})
 
 const server = new ApolloServer({
   schema,
-});
+})
 
-server
-  .listen()
-  .then(({ url }) => console.log(`GraphQL server ready on ${url}`));
+server.listen().then(({ url }) => console.log(`GraphQL server ready on ${url}`))
