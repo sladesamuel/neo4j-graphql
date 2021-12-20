@@ -2,7 +2,9 @@ const { gql, ApolloServer } = require("apollo-server")
 const { Neo4jGraphQL } = require("@neo4j/graphql")
 const neo4j = require("neo4j-driver")
 
-require("dotenv").config()
+require("dotenv").config({
+  path: "../.env",
+})
 
 const typeDefs = gql`
   type Movie {
