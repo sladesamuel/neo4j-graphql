@@ -1,17 +1,9 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": ["prettier"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"],
     "semi": 0,
-    "no-console": 0,
-    "react/jsx-filename-extension": 0,
-    "react/function-component-definition": [
-      2,
-      {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
-    ]
+    "no-console": 0
   }
 }

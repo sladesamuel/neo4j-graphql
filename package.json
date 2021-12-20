@@ -4,7 +4,9 @@
   "description": "This is a prototype to prove 2 things:",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd query-api && npm i",
+    "install:query-api": "cd query-api && npm i && cd -",
+    "install:webapp": "cd webapp && npm i && cd -",
+    "postinstall": "npm run install:query-api && npm run install:webapp",
     "db": "docker-compose up -d",
     "seed": "cd seed && npm start && cd -",
     "start:query-api": "cd query-api && npm start && cd -",
@@ -20,7 +22,6 @@
     "eslint-config-airbnb": "^19.0.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
