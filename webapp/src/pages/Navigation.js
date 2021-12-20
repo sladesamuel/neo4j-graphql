@@ -1,10 +1,9 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import Layout from "../components/Layout"
+import MovieNavTile from "../components/MovieNavTile"
 
 export default () => (
-  <ul>
-    <li>
-      <Link to="/movies">Movies</Link>
-    </li>
-  </ul>
+  <Layout>
+    <MovieNavTile />
+  </Layout>
 )
