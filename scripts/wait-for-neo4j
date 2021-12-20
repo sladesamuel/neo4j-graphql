@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+function check_status_code {
+  curl --write-out "%{http_code}\n" --silent --output /dev/null localhost:7474
+}
+
+echo "Waiting for Neo4j..."
+timer=0
+while [[ "$(check_status_code)" != "200" && $timer -lt 30 ]]
+do
+  sleep 1
+  timer=$((timer + 1))
+done
+
+if [[ "$(check_status_code)" == "200" ]]
+then
+  echo "Neo4j has started"
+else
+  echo "Failed to find Neo4j"
+  exit 1
+fi

@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "cd query-api && npm i",
+    "db": "docker-compose up -d",
     "start:query-api": "cd query-api && npm start",
-    "start": "concurrently \"npm:start:query-api\""
+    "start": "npm run db && scripts/wait-for-neo4j && concurrently \"npm:start:query-api\"",
+    "clean": "docker-compose down; sudo rm -rf ./data"
   },
   "author": "",
   "license": "ISC",

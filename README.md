@@ -16,7 +16,13 @@ The following tools are required to be installed to work with this repository.
 
 ## Getting started
 
-To run the project, run the following commands from the terminal in the root folder.
+Make sure the graph database is running locally:
+
+```shell
+$ docker-compose up -d
+```
+
+Then, to run the project, run the following commands from the terminal in the root folder.
 
 ```shell
 $ npm i
@@ -24,3 +30,11 @@ $ npm start
 ```
 
 > Make sure you are running within a terminal where /bin/bash is available, as this is used to run the scripts.
+
+## Cleanup
+
+To run all cleanup, execute the following command from the terminal in the root folder.
+
+```shell
+$ npm run clean
+```
