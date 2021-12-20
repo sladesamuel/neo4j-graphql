@@ -1,0 +1,16 @@
+{
+  "name": "neo4j-graphql",
+  "version": "1.0.0",
+  "description": "This is a prototype to prove 2 things:",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd query-api && npm i",
+    "start:query-api": "cd query-api && npm start",
+    "start": "concurrently \"npm:start:query-api\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.5.1"
+  }
+}
