@@ -7,8 +7,9 @@
     "postinstall": "cd query-api && npm i",
     "db": "docker-compose up -d",
     "seed": "cd seed && npm start && cd -",
-    "start:query-api": "cd query-api && npm start",
-    "start": "npm run db && scripts/wait-for-neo4j && concurrently \"npm:start:query-api\"",
+    "start:query-api": "cd query-api && npm start && cd -",
+    "start:webapp": "cd webapp && npm start && cd -",
+    "start": "npm run db && scripts/wait-for-neo4j && concurrently \"npm:start:query-api\" \"npm:start:webapp\"",
     "clean": "docker-compose down; sudo rm -rf ./data"
   },
   "author": "",
