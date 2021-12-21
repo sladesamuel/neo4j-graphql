@@ -9,8 +9,7 @@ require("dotenv").config({
 const typeDefs = gql`
   type Movie {
     title: String!
-    released: Int
-    tagline: String
+    year: Int
     actors: [Person] @relationship(type: "ACTED_IN", direction: IN)
   }
 
