@@ -12,8 +12,17 @@ const mutationEndpoint = new HttpLink({
   uri: "http://localhost:4001",
 })
 
+const link = ApolloLink.split(
+  (operation) => {
+    const [definition] = operation.query.definitions
+    return definition?.operation === "query"
+  },
+  queryEndpoint,
+  mutationEndpoint
+)
+
 const client = new ApolloClient({
-  link: ApolloLink.concat(queryEndpoint, mutationEndpoint),
+  link,
   cache: new InMemoryCache(),
 })
 
