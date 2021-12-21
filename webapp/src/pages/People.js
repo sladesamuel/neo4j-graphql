@@ -1,8 +1,12 @@
 import React from "react"
+import ContainerLayout from "../components/ContainerLayout"
+import Content from "../components/Content"
+import Title from "../components/Title"
 
 export default () => (
-  <>
-    <h1>People</h1>
-    <div>TODO: Show Data</div>
-  </>
+  <ContainerLayout>
+    <Title text="People" />
+
+    <Content>TODO: Show Data</Content>
+  </ContainerLayout>
 )

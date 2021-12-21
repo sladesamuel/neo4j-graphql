@@ -1,9 +1,12 @@
 import React from "react"
+import ContainerLayout from "../components/ContainerLayout"
+import Content from "../components/Content"
+import Title from "../components/Title"
 
 export default () => (
-  <>
-    <h1>Movies</h1>
+  <ContainerLayout>
+    <Title text="Movies" />
 
-    <div>TODO: Data</div>
-  </>
+    <Content>TODO: Data</Content>
+  </ContainerLayout>
 )

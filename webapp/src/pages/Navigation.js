@@ -1,11 +1,11 @@
 import React from "react"
-import Layout from "../components/Layout"
+import CentralLayout from "../components/CentralLayout"
 import NavTile from "../components/NavTile"
 import movieImage from "../images/movies.png"
 import peopleImage from "../images/people.png"
 
 export default () => (
-  <Layout>
+  <CentralLayout>
     <div className="flex flex-wrap">
       <NavTile
         url="/movies"
@@ -21,5 +21,5 @@ export default () => (
         image={peopleImage}
       />
     </div>
-  </Layout>
+  </CentralLayout>
 )
