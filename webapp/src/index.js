@@ -1,11 +1,19 @@
 import React, { StrictMode } from "react"
 import { render } from "react-dom"
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
+import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, ApolloLink } from "@apollo/client"
 import App from "./App"
 import "./index.css"
 
-const client = new ApolloClient({
+const queryEndpoint = new HttpLink({
   uri: "http://localhost:4000",
+})
+
+const mutationEndpoint = new HttpLink({
+  uri: "http://localhost:4001",
+})
+
+const client = new ApolloClient({
+  link: ApolloLink.concat(queryEndpoint, mutationEndpoint),
   cache: new InMemoryCache(),
 })
 

@@ -2,8 +2,8 @@ import Movie from "./Movie"
 
 export default ({ movies }) => (
   <>
-    {movies.map((movie) => (
-      <Movie key={movie.title} movie={movie} />
+    {movies.map((movie, index) => (
+      <Movie key={`${movie.title}-${index}`} movie={movie} />
     ))}
   </>
 )

@@ -9,7 +9,6 @@ This is a prototype to prove 2 things:
 
 The following tools are required to be installed to work with this repository.
 
-1. [GNU Make](https://www.gnu.org/software/make/)
 1. [NodeJS and npm](https://nodejs.org/en/download/package-manager/)
 1. [Docker](https://docs.docker.com/get-docker/)
 1. [Docker Compose](https://docs.docker.com/compose/install/)

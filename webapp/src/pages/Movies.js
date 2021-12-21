@@ -5,6 +5,7 @@ import Content from "../components/Content"
 import Title from "../components/Title"
 import Loading from "../components/Loading"
 import MovieList from "../components/MovieList"
+import AddButton from "../components/AddButton"
 
 const movies = gql`
   query GetMovies {
@@ -20,7 +21,11 @@ export default () => {
 
   return (
     <ContainerLayout>
-      <Title text="Movies" />
+      <header className="bg-white flex flex-row justify-start align-middle">
+        <Title text="Movies" />
+        <div className="flex-grow" />
+        <AddButton text="Add Movie" />
+      </header>
 
       <Content>
         {error && <p>{error.message}</p>}
