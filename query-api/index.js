@@ -15,6 +15,7 @@ const typeDefs = gql`
 
   type Person {
     name: String!
+    born: Int
     movies: [Movie] @relationship(type: "ACTED_IN", direction: OUT)
   }
 `
