@@ -10,13 +10,18 @@ const typeDefs = gql`
   type Movie {
     title: String!
     year: Int
-    actors: [Person] @relationship(type: "ACTED_IN", direction: IN)
+    # actors: [Person] @relationship(type: "ACTED_IN", direction: IN)
   }
 
   type Person {
     name: String!
     born: Int
-    movies: [Movie] @relationship(type: "ACTED_IN", direction: OUT)
+    # movies: [Movie] @relationship(type: "ACTED_IN", direction: OUT)
+  }
+
+  type Query {
+    movies: [Movie!]!
+    people: [Person!]!
   }
 `
 
