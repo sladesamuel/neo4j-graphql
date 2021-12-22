@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { gql, useQuery } from "@apollo/client"
 import ContainerLayout from "../components/ContainerLayout"
 import Content from "../components/Content"
@@ -7,6 +7,7 @@ import Loading from "../components/Loading"
 import MovieList from "../components/MovieList"
 import AddButton from "../components/AddButton"
 import AddMovie from "../components/AddMovie"
+import { Outlet } from "react-router-dom"
 
 const movies = gql`
   query GetMovies {
@@ -18,8 +19,6 @@ const movies = gql`
 `
 
 export default () => {
-  const [showAddMovie, setShowAddMovie] = useState(false)
-
   const { loading, error, data } = useQuery(movies)
 
   return (
@@ -28,7 +27,7 @@ export default () => {
         <header className="bg-white flex flex-row justify-start align-middle">
           <Title text="Movies" />
           <div className="flex-grow" />
-          <AddButton text="Add Movie" onClick={() => setShowAddMovie(true)} />
+          <AddButton text="Add Movie" url="/movies/new" />
         </header>
 
         <Content>
@@ -39,7 +38,7 @@ export default () => {
         </Content>
       </ContainerLayout>
 
-      <AddMovie show={showAddMovie} />
+      <Outlet />
     </>
   )
 }
