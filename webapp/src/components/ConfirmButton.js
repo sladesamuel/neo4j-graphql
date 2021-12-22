@@ -9,6 +9,7 @@ export default ({ text, onClick, disabled = false }) => (
       onClick && onClick()
     }}
     disabled={disabled}
+    type="submit"
   >
     <FontAwesomeIcon icon={faSave} />
     <span className="ml-2">{text}</span>
