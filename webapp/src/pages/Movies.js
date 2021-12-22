@@ -11,7 +11,7 @@ import { Outlet } from "react-router-dom"
 
 const movies = gql`
   query GetMovies {
-    movies {
+    movies(options: { sort: [{ title: ASC }] }) {
       title
       year
     }
@@ -19,7 +19,9 @@ const movies = gql`
 `
 
 export default () => {
-  const { loading, error, data } = useQuery(movies)
+  const { loading, error, data } = useQuery(movies, {
+    pollInterval: 500,
+  })
 
   return (
     <>
