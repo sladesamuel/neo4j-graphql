@@ -13,7 +13,7 @@ export default () => (
       <Route path="/">
         <Route index element={<Navigation />} />
         <Route path="/movies" element={<Movies />}>
-          <Route path="new" element={<AddMovie show={true} />} />
+          <Route path="new" element={<AddMovie />} />
         </Route>
         <Route path="/people" element={<People />} />
       </Route>
